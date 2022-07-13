@@ -1,15 +1,27 @@
 .red{
-    position: fixed;
-    height: 50%;
+    height: 50vh;
     width: 60%;
-    background-color: red;
+    background-color: rgb(255, 227, 227);
     overflow: scroll;
+
+    border-color: black;
+    border-style: solid;
+    box-sizing: border-box;
 
     display: flex;
     flex-direction: column-reverse;
 }
 
+.form{
+    display: flex;
+    width: 60%;
+    height: 5vh;
+}
+
+.input{
+    width: 70%;
+}
+
 .button{
-    position: fixed;
-    bottom:40%;
+    width: 30%;
 }

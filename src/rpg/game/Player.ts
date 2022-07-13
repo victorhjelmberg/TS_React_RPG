@@ -1,6 +1,7 @@
 export class Player{
 
-    constructor(){
+    constructor(sendMessage: (text:string)=>void){
+        this.sendMessage = sendMessage;
         this.resetInventory();
     }
 
@@ -15,13 +16,15 @@ export class Player{
         }
     }
 
+    public sendMessage;
+
     public takeDamage(damage: number){
         this.health -= damage;
 
         //Checks if the player is dead
         if(this.health <= 0){
             this.resetInventory();
-            console.log("You died and lost all of your inventory");
+            this.sendMessage("You died and lost all of your inventory");
         }
     }
 
@@ -31,9 +34,9 @@ export class Player{
 
     /* Display */
     public displayHealth(){
-        console.log("Health: " + this.health);
+        this.sendMessage("Health: " + this.health);
     }
     public displayInventory(){
-        console.log(this.inventory);
+        this.sendMessage(JSON.stringify(this.inventory));
     }
 }

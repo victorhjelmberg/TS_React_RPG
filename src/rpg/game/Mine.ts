@@ -16,12 +16,12 @@ export class Mine{
     }
 
     private getRessource(ressource:string, amount:number){
-        console.log("You mined 1 " + ressource + ".");
+        this.player.sendMessage("You mined 1 " + ressource + ".");
         this.player.addMaterial(ressource, amount);
     }
 
     private takeDamage(damage:number){
-        console.log("A bomb exploded while you where digging. You took " + damage + " damage.");
+        this.player.sendMessage("A bomb exploded while you where digging. You took " + damage + " damage.");
         this.player.takeDamage(damage);
     }
 
