@@ -1,7 +1,7 @@
 import {Player} from './Player';
 import {Mine} from './Mine';
 
-class App{
+class Controlls{
 
     private p = new Player();
     private m = new Mine(this.p);
@@ -15,4 +15,4 @@ class App{
     }
 
 }
-export default App;
+export default Controlls;

@@ -1,0 +1,15 @@
+.red{
+    position: fixed;
+    height: 50%;
+    width: 60%;
+    background-color: red;
+    overflow: scroll;
+
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.button{
+    position: fixed;
+    bottom:40%;
+}
