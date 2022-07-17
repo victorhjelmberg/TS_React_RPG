@@ -24,5 +24,8 @@ class Controlls{
         this.p.displayHealth();
     }
 
+    public sendPlayerMessage(message: string){
+        this.p.sendMessage(message);
+    }
 }
 export default Controlls;

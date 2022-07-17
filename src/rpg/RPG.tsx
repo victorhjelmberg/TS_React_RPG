@@ -18,6 +18,12 @@ class RPG extends Component<{}, {comp: JSX.Element[], textInput: string}>{
 
     private game = new Controlls(this.addText.bind(this));
 
+    private commandLibary : {[command:string]:()=>void} = {
+        'mine': this.game.mine.bind(this.game),
+        'inventory': this.game.inventory.bind(this.game),
+        'health': this.game.displayHealth.bind(this.game)
+    }
+
     private addText(text: string){
         let b = this.state.comp;
         b.unshift(<p>{text}</p>);
@@ -39,24 +45,19 @@ class RPG extends Component<{}, {comp: JSX.Element[], textInput: string}>{
 
         const command = untestedCommand.substring(1).toLowerCase();
 
-        switch(command){
-            case('mine'): {
-                this.game.mine();
-                break;
+        const commandCallback = this.commandLibary[command]
+        
+        if(typeof(commandCallback) === 'undefined'){
+            if(command === 'commands'){
+                //List commands
+                this.addText('Commands: ' + Object.keys(this.commandLibary).map((command) => '/' + command).join(', '));
+            } else {
+                //Command not found
+                this.addText('Command not found. Try /commands for a full list of all commands');
             }
-            case('inventory'): {
-                this.game.inventory();
-                break;
-            }
-            case('health'):{
-                this.game.displayHealth();
-                break;
-            }
-            default:{
-                this.addText('Command was not found');
-            }
+        } else {
+            commandCallback();
         }
-
     }
 
     private onInputChange(event: React.FormEvent<HTMLInputElement>){
