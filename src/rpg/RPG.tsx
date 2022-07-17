@@ -75,7 +75,6 @@ class RPG extends Component<{}, {comp: JSX.Element[], textInput: string}>{
                     <input className='input' value={this.state.textInput} onChange={this.onInputChange}></input>
                     <input className='button' type='submit' ></input>
                 </form>
-                <button onClick={() => this.addText('Hejsa')}>Oke</button>
             </div>
         )
     }
