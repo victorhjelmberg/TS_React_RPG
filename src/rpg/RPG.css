@@ -12,6 +12,14 @@
     flex-direction: column-reverse;
 }
 
+.red p{
+    border-color: black;
+    border-style: solid;
+    border-width: thin;
+    margin: 0;
+    padding: 3%;
+}
+
 .form{
     display: flex;
     width: 60%;

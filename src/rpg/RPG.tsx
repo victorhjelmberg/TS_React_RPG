@@ -8,7 +8,7 @@ class RPG extends Component<{}, {comp: JSX.Element[], textInput: string}>{
     constructor(props:any){
         super(props);
 
-        this.state = {comp: [<p>Hejsa</p>], textInput: ''};
+        this.state = {comp: [<p style={{"fontWeight": "bold"}}>Welcome to text-RPG. Type /commands to get started</p>], textInput: ''};
 
         this.addText = this.addText.bind(this);
         this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -41,6 +41,7 @@ class RPG extends Component<{}, {comp: JSX.Element[], textInput: string}>{
 
         if(!untestedCommand.startsWith('/')){
             this.addText('Syntax error: Command needs to begin with "/"');
+            return;
         }
 
         const command = untestedCommand.substring(1).toLowerCase();
